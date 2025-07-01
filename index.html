@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 40%;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>To-Do List</h2>
+        <ul id="todo-list"></ul>
+        <input type="text" id="todo-input" placeholder="Add new task">
+        <button id="add-task">Add</button>
+    </div>
+    <script>
+        const todoList = document.getElementById("todo-list");
+        const addTask = document.getElementById("add-task");
+        const todoInput = document.getElementById("todo-input");
+
+        addTask.addEventListener("click", function() {
+            const task = todoInput.value.trim();
+            if (task) {
+                const li = document.createElement("li");
+                li.textContent = task;
+                todoList.appendChild(li);
+                todoInput.value = "";
+            }
+        });
+    </script>
+</body>
+</html>
